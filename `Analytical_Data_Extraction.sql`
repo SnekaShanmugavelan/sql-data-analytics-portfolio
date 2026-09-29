@@ -1,0 +1,68 @@
+1.Monthly Performance
+   
+   SELECT EXTRACT(YEAR FROM `Order Date`) AS revenue_year,
+     EXTRACT(MONTH FROM `Order Date`) AS revenue_month,
+     COUNT(DISTINCT `Order ID`) AS total_orders,
+     ROUND(SUM(Sales), 2) AS total_revenue,
+     ROUND(SUM(Profit), 2) AS total_profit
+   FROM `savvy-depot-507903-m5.superstore_sales.sample superstore`
+   GROUP BY revenue_year, revenue_month
+   ORDER BY revenue_year ASC, revenue_month ASC;
+
+2.Segment Value
+   
+   SELECT Segment,
+     COUNT(DISTINCT `Order ID`) AS total_orders,
+     ROUND(SUM(Sales), 2) AS total_segment_revenue,
+     ROUND(SUM(Profit), 2) AS total_segment_profit,
+     ROUND((SUM(Profit) / SUM(Sales)) * 100, 2) AS profit_margin_percentage
+   FROM `savvy-depot-570903-m5.superstore_sales.sample superstore`
+   GROUP BY Segment
+   ORDER BY total_segment_revenue DESC;
+
+3.Top Products
+
+  WITH product_sales AS (
+   SELECT 
+     Category,
+    `Sub-Category` AS sub_category,
+    `Product Name` AS product_name,
+     ROUND(SUM(Sales), 2) AS total_item_revenue
+   FROM `savvy-depot-570903-m5.superstore_sales.sample superstore`
+   GROUP BY Category, sub_category, product_name
+   )
+   SELECT 
+     Category,
+     sub_category,
+     product_name,
+     total_item_revenue,
+     DENSE_RANK() OVER (PARTITION BY Category ORDER BY total_item_revenue DESC) AS product_rank
+   FROM product_sales
+   QUALIFY product_rank <= 3
+   ORDER BY Category ASC, product_rank ASC;
+
+4.MoM Growth Performance 
+
+  WITH monthly_revenue AS (
+    SELECT 
+      EXTRACT(YEAR FROM `Order Date`) AS revenue_year,
+      EXTRACT(MONTH FROM `Order Date`) AS revenue_month,
+      ROUND(SUM(Sales), 2) AS current_month_revenue
+   FROM 
+    `savvy-depot-507903-m5.superstore_sales.samplesuperstore`
+   GROUP BY revenue_year, revenue_month
+ )
+   SELECT 
+      revenue_year,
+      revenue_month,
+      current_month_revenue,
+      LAG(current_month_revenue, 1) OVER (ORDER BY revenue_year ASC, revenue_month ASC) AS previous_month_revenue,
+      ROUND(
+      ((current_month_revenue - LAG(current_month_revenue, 1) OVER (ORDER BY revenue_year ASC, revenue_month ASC)) 
+      / LAG(current_month_revenue, 1) OVER (ORDER BY revenue_year ASC, revenue_month ASC)) * 100, 
+     2
+  ) AS mom_growth_percentage
+  FROM monthly_revenue
+  ORDER BY revenue_year ASC, revenue_month ASC;
+
+
