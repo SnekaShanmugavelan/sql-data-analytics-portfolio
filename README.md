@@ -19,8 +19,8 @@ The baseline script is saved in this repository as [Analytical_Data_Extraction.s
  and covers four production operations:
 1. **Monthly Performance Trends:** Extracting granular year/month dimensions to track total orders alongside rolling revenue and profit margins.
 2. **Customer Segment Value Mapping:** Aggregating purchase values by corporate segments to measure comparative profit margin percentages.
-3. **Top 3 Products by Category Partition:** Leveraging analytical window operations (`DENSE_RANK() OVER (PARTITION BY...)`) and filtration filters (`QUALIFY`) to dynamically extract the top 3 revenue-generating items inside each product category.
-4. **Month-over-Month (MoM) Growth Velocity:** Implementing sequential offset analytics (`LAG() OVER (ORDER BY...)`) inside complex Common Table Expressions (CTEs) to measure running revenue growth rates across the calendar timeline.
+3. **Top 3 Products by Category Partition:** Leveraging analytical window operations [DENSE_RANK() OVER (PARTITION BY...)](`Analytical_Data_Extraction.sql`) and filtration filters [QUALIFY](`Analytical_Data_Extraction.sql`) to dynamically extract the top 3 revenue-generating items inside each product category.
+4. **Month-over-Month (MoM) Growth Velocity:** Implementing sequential offset analytics [LAG() OVER (ORDER BY...)](`Analytical_Data_Extraction.sql`)inside complex Common Table Expressions (CTEs) to measure running revenue growth rates across the calendar timeline.
 
 ### Step 2: Spreadsheet Data Modeling (Google Sheets)
 Once the consolidated query blocks were extracted, the aggregated grids were processed inside Google Sheets to organize the data schema for reporting.
