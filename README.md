@@ -12,7 +12,7 @@ Below is the core operational layout of the finalized retail analytics dashboard
 ![Executive Performance Dashboard](dashboard_preview.png) 
 
 ### Step 1: Database Engineering & SQL Query Architecture
-Before building the visuals, I engineered structured SQL aggregation queries to isolate key revenue performance drivers from a dataset of over 9,000 transactions [(samplesuperstore)](https://docs.google.com/spreadsheets/d/1EyG2mrIgtvazyPWCwpu7Q6H64pQL7rxd2QSlqe07OAY/edit?gid=223034233#gid=223034233)
+Before building the visuals, I engineered structured SQL aggregation queries to isolate key revenue performance drivers from a dataset of over 9,000 transactions [Superstore Retail Performance Pipeline](https://docs.google.com/spreadsheets/d/1EyG2mrIgtvazyPWCwpu7Q6H64pQL7rxd2QSlqe07OAY/edit?gid=223034233#gid=223034233)
  
 
 The baseline script is saved in this repository as [Analytical_Data_Extraction.sql](`Analytical_Data_Extraction.sql`)
