@@ -8,8 +8,7 @@ This repository houses an end-to-end business intelligence pipeline analyzing en
 
 ### Dashboard Preview
 Below is the core operational layout of the finalized retail analytics dashboard:
-
-![Executive Performance Dashboard](https://public.tableau.com/app/profile/sneka.shanmugavelan/viz/E-Commerce-Revenue-Intelligence/E-CommerceOperationalRevenueIntelligenceSystem)
+[Click Here to View the Final Tableau DashBoard] (https://public.tableau.com/app/profile/sneka.shanmugavelan/viz/SuperstoreSalesPerformancePipeline/E-Commerce-RevenueIntelligenceDashBoard)
 
 ### Step 1: Database Engineering & SQL Query Architecture
 Before building the visuals, I engineered structured SQL aggregation queries to isolate key revenue performance drivers from a dataset of over 9,000 transactions (`samplesuperstore`). 
