@@ -9,7 +9,7 @@ This repository houses an end-to-end business intelligence pipeline analyzing en
 ### Dashboard Preview
 Below is the core operational layout of the finalized retail analytics dashboard:
 
-![Executive Performance Dashboard](dashboard_preview.png)
+![Executive Performance Dashboard](dashboard_preview.png) 
 
 ### Step 1: Database Engineering & SQL Query Architecture
 Before building the visuals, I engineered structured SQL aggregation queries to isolate key revenue performance drivers from a dataset of over 9,000 transactions [(samplesuperstore)](https://docs.google.com/spreadsheets/d/1EyG2mrIgtvazyPWCwpu7Q6H64pQL7rxd2QSlqe07OAY/edit?gid=223034233#gid=223034233)
