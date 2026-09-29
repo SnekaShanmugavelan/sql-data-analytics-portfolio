@@ -12,9 +12,11 @@ Below is the core operational layout of the finalized retail analytics dashboard
 ![Executive Performance Dashboard](dashboard_preview.png)
 
 ### Step 1: Database Engineering & SQL Query Architecture
-Before building the visuals, I engineered structured SQL aggregation queries to isolate key revenue performance drivers from a dataset of over 9,000 transactions (`samplesuperstore`). 
+Before building the visuals, I engineered structured SQL aggregation queries to isolate key revenue performance drivers from a dataset of over 9,000 transactions [(samplesuperstore)](https://docs.google.com/spreadsheets/d/1EyG2mrIgtvazyPWCwpu7Q6H64pQL7rxd2QSlqe07OAY/edit?gid=223034233#gid=223034233)
+ 
 
-The baseline script is saved in this repository as `Analytical_Data_Extraction.sql` and covers four production operations:
+The baseline script is saved in this repository as [Analytical_Data_Extraction.sql](`Analytical_Data_Extraction.sql`)
+ and covers four production operations:
 1. **Monthly Performance Trends:** Extracting granular year/month dimensions to track total orders alongside rolling revenue and profit margins.
 2. **Customer Segment Value Mapping:** Aggregating purchase values by corporate segments to measure comparative profit margin percentages.
 3. **Top 3 Products by Category Partition:** Leveraging analytical window operations (`DENSE_RANK() OVER (PARTITION BY...)`) and filtration filters (`QUALIFY`) to dynamically extract the top 3 revenue-generating items inside each product category.
