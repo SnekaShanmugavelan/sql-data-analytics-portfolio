@@ -1,4 +1,4 @@
-# Superstore Sales Performance Pipeline: SQL & Tableau Integration
+# Superstore Retail Performance Pipeline: SQL & Tableau Integration
 
 This repository houses an end-to-end business intelligence pipeline analyzing enterprise retail transactions. The workflow handles backend data aggregation and financial KPI engineering using complex SQL window operations, structural modeling within Google Sheets, and final interactive executive dashboard delivery via Tableau.
 
